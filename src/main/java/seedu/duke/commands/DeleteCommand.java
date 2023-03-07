@@ -2,9 +2,16 @@ package seedu.duke.commands;
 
 import seedu.duke.entrylog.EntryLog;
 
-public class DeleteCommand {
-    public static void deleteEntry(int entryId){
-        // TODO: implement delete from EntryLog instance
-        EntryLog.delete(entryId - 1);
+public class DeleteCommand extends Command{
+
+    private Integer entryId;
+
+    public DeleteCommand(Integer inputId){
+        this.entryId = inputId - 1;
+    }
+
+    @Override
+    public void execute(EntryLog entries) {
+        entries.delete(entryId);
     }
 }
