@@ -7,10 +7,11 @@ import seedu.duke.entries.Other;
 import seedu.duke.entrylog.EntryLog;
 
 public class AddCommand extends Command {
+    private static final String CATEGORY_FOOD = "food";
+    private static final String CATEGORY_OTHER = "other";
+    private static final String CATEGORY_INCOME = "income";
+
     private Entry entryObj;
-    private final String CATEGORY_FOOD = "food";
-    private final String CATEGORY_OTHER = "other";
-    private final String CATEGORY_INCOME = "income";
 
     public AddCommand(String description, String category, double amount) {
         switch(category){
