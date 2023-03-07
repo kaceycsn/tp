@@ -14,20 +14,20 @@ public class AddCommand extends Command {
 
     public AddCommand(String description, String category, double amount) {
         switch(category){
-            case CATEGORY_FOOD:
-                this.entryObj = new Food(description, amount);
-                break;
+        case CATEGORY_FOOD:
+            this.entryObj = new Food(description, amount);
+            break;
 
-            case CATEGORY_OTHER:
-                this.entryObj = new Other(description, amount);
-                break;
+        case CATEGORY_OTHER:
+            this.entryObj = new Other(description, amount);
+            break;
 
-            case CATEGORY_INCOME:
-                this.entryObj = new Income(description, amount);
-                break;
+        case CATEGORY_INCOME:
+            this.entryObj = new Income(description, amount);
+            break;
 
-            default:
-                return;
+        default:
+            return;
         }
     }
 
