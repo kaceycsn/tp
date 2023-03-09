@@ -1,4 +1,14 @@
-baseURL = 'https://ay2223s2-cs2113-w15-2.github.io/tp/'
 languageCode = 'en-sg'
-title = 'AY2223S2-CS2113-W15-2'
-theme = 'hugo-book'
+title = 'PocketPal'
+theme = 'ace-documentation'
+disablePathToLower = true
+
+[[menu.shortcuts]]
+name = "Home"
+url = "/"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i>"
+url = "https://github.com/AY2223S2-CS2113-W15-2/tp"
+weight = 10

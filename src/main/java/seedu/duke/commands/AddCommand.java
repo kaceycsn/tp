@@ -4,7 +4,7 @@ import seedu.duke.entries.Entry;
 import seedu.duke.entries.Food;
 import seedu.duke.entries.Income;
 import seedu.duke.entries.Other;
-import seedu.duke.entrylog.EntryLog;
+// import seedu.duke.entrylog.EntryLog;
 
 public class AddCommand {
     private static final String CATEGORY_FOOD = "food";
@@ -30,7 +30,7 @@ public class AddCommand {
             return;
         }
         // TODO: implement add to EntryLog instance
-        EntryLog.add(newEntry);
+        // EntryLog.add(newEntry);
     }
 
 }
