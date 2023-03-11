@@ -6,7 +6,7 @@ public final class UIConstants {
     public static final String USER_INPUT_PROMPT = "Enter a command or /help to see the list of commands available."
             + NEWLINE
             + "> ";
-    public static final String FORMAT_2DP = "#.00";
+    public static final String FORMAT_2DP = "0.00";
 
     private UIConstants() {
     }

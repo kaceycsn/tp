@@ -12,7 +12,7 @@ public class UI {
      * @param priceDouble price
      * @return String of price with two decimal places
      */
-    private String formatPrice(double priceDouble) {
+    public static String formatPrice(double priceDouble) {
         return new DecimalFormat(UIConstants.FORMAT_2DP)
                 .format(priceDouble);
     }
@@ -25,7 +25,7 @@ public class UI {
      * @param category    Category of expenditure
      * @return Formatted expenditure string
      */
-    private String formatExpenditure(String description, double price, String category) {
+    public static String formatExpenditure(String description, double price, String category) {
         return MessageConstants.DESCRIPTION +
                 description +
                 MessageConstants.NEWLINE +

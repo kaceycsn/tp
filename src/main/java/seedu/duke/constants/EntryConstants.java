@@ -9,4 +9,5 @@ public class EntryConstants {
     public static final String PERSONAL = "Personal";
     public static final String TRANSPORTATION = "Transportation";
     public static final String UTILITIES = "Utilities";
+    public static final String INCOME = "Income";
 }

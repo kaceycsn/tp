@@ -1,36 +1,77 @@
 package seedu.duke.commands;
 
+import seedu.duke.constants.EntryConstants;
+import seedu.duke.entries.Category;
 import seedu.duke.entries.Entry;
-import seedu.duke.entries.Food;
-import seedu.duke.entries.Income;
-import seedu.duke.entries.Other;
-// import seedu.duke.entrylog.EntryLog;
+import seedu.duke.entrylog.EntryLog;
+import seedu.duke.exceptions.InvalidCategoryException;
 
-public class AddCommand {
-    private static final String CATEGORY_FOOD = "food";
-    private static final String CATEGORY_OTHER = "other";
-    private static final String CATEGORY_INCOME = "income";
+/**
+ * Represents the add feature in PocketPal. Users may provide a description
+ * and specify the corresponding price and category of their entry
+ * e.g., <code>/add lunch -p 15 -c food</code>
+ */
+public class AddCommand extends Command {
+    private static final String MESSAGE_INVALID_CATEGORY = "Please specify a valid category!";
+    private Entry entryObj;
 
-    public static void addEntry(String description, String category, double amount){
-        Entry newEntry;
+    /**
+     * AddCommand constructor which initialises entryObj to be added
+     *
+     * @param description Description of the entry
+     * @param category    Category which entry belongs to
+     * @param amount      Price of entry
+     */
+    public AddCommand(String description, String category, double amount) throws InvalidCategoryException {
         switch(category){
-        case CATEGORY_FOOD:
-            newEntry = new Food(description, amount);
+        case EntryConstants.CLOTHING:
+            this.entryObj = new Entry(description, amount, Category.CLOTHING);
             break;
 
-        case CATEGORY_OTHER:
-            newEntry = new Other(description, amount);
+        case EntryConstants.ENTERTAINMENT:
+            this.entryObj = new Entry(description, amount, Category.ENTERTAINMENT);
             break;
 
-        case CATEGORY_INCOME:
-            newEntry = new Income(description, amount);
+        case EntryConstants.FOOD:
+            this.entryObj = new Entry(description, amount, Category.FOOD);
+            break;
+
+        case EntryConstants.INCOME:
+            this.entryObj = new Entry(description, amount, Category.INCOME);
+            break;
+
+        case EntryConstants.MEDICAL:
+            this.entryObj = new Entry(description, amount, Category.MEDICAL);
+            break;
+
+        case EntryConstants.OTHERS:
+            this.entryObj = new Entry(description, amount, Category.OTHERS);
+            break;
+
+        case EntryConstants.PERSONAL:
+            this.entryObj = new Entry(description, amount, Category.PERSONAL);
+            break;
+
+        case EntryConstants.TRANSPORTATION:
+            this.entryObj = new Entry(description, amount, Category.TRANSPORTATION);
+            break;
+
+        case EntryConstants.UTILITIES:
+            this.entryObj = new Entry(description, amount, Category.UTILITIES);
             break;
 
         default:
-            return;
+            throw new InvalidCategoryException(MESSAGE_INVALID_CATEGORY);
         }
-        // TODO: implement add to EntryLog instance
-        // EntryLog.add(newEntry);
     }
 
+    /**
+     * Adds Entry object to entry log
+     *
+     * @param entries List of entries to add to
+     */
+    @Override
+    public void execute(EntryLog entries) {
+        entries.add(entryObj);
+    }
 }

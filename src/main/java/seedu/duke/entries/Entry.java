@@ -1,8 +1,13 @@
 package seedu.duke.entries;
 
 import seedu.duke.constants.EntryConstants;
-// import seedu.duke.entries.Category;
 
+/**
+ * Represents an entry, from which various possible entry types
+ * such as Food, Medical or Income are derived. User may specify
+ * their desired entry type when adding to their entry log.
+ * e.g., <code>/add lunch -p 15 -c food</code>
+ */
 public class Entry {
     private Category category;
     private String description;
@@ -36,6 +41,8 @@ public class Entry {
             return EntryConstants.UTILITIES;
         case TRANSPORTATION:
             return EntryConstants.TRANSPORTATION;
+        case INCOME:
+            return EntryConstants.INCOME;
         default:
             throw new IllegalArgumentException();
         }
