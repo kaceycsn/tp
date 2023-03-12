@@ -1,6 +1,7 @@
 package seedu.duke.commands;
 
 import seedu.duke.constants.EntryConstants;
+import seedu.duke.constants.MessageConstants;
 import seedu.duke.entries.Category;
 import seedu.duke.entries.Entry;
 import seedu.duke.entrylog.EntryLog;
@@ -15,7 +16,6 @@ import java.util.logging.Logger;
  * e.g., <code>/add lunch -p 15 -c food</code>
  */
 public class AddCommand extends Command {
-    private static final String MESSAGE_INVALID_CATEGORY = "Please specify a valid category!";
     private static Logger logger = Logger.getLogger(AddCommand.class.getName());
     private Entry entryObj;
 
@@ -66,7 +66,7 @@ public class AddCommand extends Command {
 
         default:
             logger.log(Level.WARNING, "Input category is invalid");
-            throw new InvalidCategoryException(MESSAGE_INVALID_CATEGORY);
+            throw new InvalidCategoryException(MessageConstants.MESSAGE_INVALID_CATEGORY);
         }
     }
 
