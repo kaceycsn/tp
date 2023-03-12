@@ -6,6 +6,9 @@ import seedu.duke.entries.Entry;
 import seedu.duke.entrylog.EntryLog;
 import seedu.duke.exceptions.InvalidCategoryException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Represents the add feature in PocketPal. Users may provide a description
  * and specify the corresponding price and category of their entry
@@ -13,6 +16,7 @@ import seedu.duke.exceptions.InvalidCategoryException;
  */
 public class AddCommand extends Command {
     private static final String MESSAGE_INVALID_CATEGORY = "Please specify a valid category!";
+    private static Logger logger = Logger.getLogger(AddCommand.class.getName());
     private Entry entryObj;
 
     /**
@@ -61,6 +65,7 @@ public class AddCommand extends Command {
             break;
 
         default:
+            logger.log(Level.WARNING, "Input category is invalid");
             throw new InvalidCategoryException(MESSAGE_INVALID_CATEGORY);
         }
     }
