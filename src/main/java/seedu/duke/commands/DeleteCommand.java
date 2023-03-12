@@ -24,6 +24,10 @@ public class DeleteCommand extends Command{
         this.entryId = inputId - 1;
     }
 
+    public Integer getEntryId(){
+        return this.entryId;
+    }
+
     /**
      * Deletes Entry object from entry log
      *
