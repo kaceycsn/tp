@@ -3,6 +3,15 @@
 /out/
 /*.iml
 
+#Visual Studio Code
+.vscode/
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-snippets
+
 # Gradle build files
 /.gradle/
 /build/
@@ -19,6 +28,10 @@ bin/
 
 /text-ui-test/ACTUAL.TXT
 text-ui-test/EXPECTED-UNIX.TXT
+
+# Test data
+data/*
+test/*
 
 ### Hugo ###
 # Generated files by hugo
