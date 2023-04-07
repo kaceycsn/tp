@@ -56,6 +56,7 @@ public class AddCommand extends Command {
         final Request request = new Request(RequestMethod.POST, EntryParser.serialise(entryObj));
         final Response response = backend.requestEndpointEntry(request);
         if (response.getResponseStatus() == ResponseStatus.CREATED) {
+            logger.info("Add entry operation successful.");
             ui.printExpenditureAdded(entryObj);
             return;
         }

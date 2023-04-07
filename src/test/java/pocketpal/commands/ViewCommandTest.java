@@ -1,3 +1,4 @@
+// @@author kaceycsn
 package pocketpal.commands;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -78,6 +79,7 @@ public class ViewCommandTest extends EntryTestUtil {
             fail("Unexpected exception");
         }
     }
+// @@author
 
     @Test
     @DisplayName("Positive test for execute method for viewCommand")

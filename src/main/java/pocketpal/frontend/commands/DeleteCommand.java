@@ -59,6 +59,7 @@ public class DeleteCommand extends Command {
                 throw new InvalidEntryIdException(MessageConstants.MESSAGE_NON_EXISTENT_ID
                         + entryId + System.lineSeparator() + MessageConstants.MESSAGE_INVALID_ID);
             }
+            logger.info("Delete entry operation successful.");
             Entry deletedEntry = EntryParser.deserialise(responseDelete.getData());
             ui.printExpenditureDeleted(deletedEntry);
         }
