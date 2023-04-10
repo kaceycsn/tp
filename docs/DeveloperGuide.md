@@ -236,7 +236,8 @@ Step 3. When `execute()` method is called, a `Request` object is created.
 Step 4. From there, the `Request` is ready to be handled. `deleteEntry()` method is called and the `Entry` is removed
 from `EntryLog`.
 
-Step 5. A success message is printed after the `Entry` is removed from `EntryLog`.
+Step 5. A success message is displayed after the `Entry` is removed from `EntryLog`.
+
 
 The following activity diagram summarizes what happens when a user executes a delete command:
 
@@ -311,16 +312,30 @@ relevant entries.
 **Step 6.** The entries are then deserialised and fed into the ui printEntriesToBeViewed method, which prints the
 details of each entry to the user.
 
+<!-- @@author kaceycsn -->
+
 #### Help Command
 
-##### Implementation
+The 'help' mechanism is facilitated by `HelpCommand`. It extends the abstract `Command` with an overriden `execute()` 
+method.
 
-**Step 1.** The Parser extracts the help command from the user input and calls the parseHelpCommand method.
+The following sequence diagram shows hows the help command work:
 
-**Step 2.** The execute method of the returned HelpCommand object is then called.
+![HelpCommandSequenceDiagram](static/frontend/commands/HelpCommandSequenceDiagram.png)
 
-**Step 3.** In the execute method, the printHelp method of the UI Class is called and a string displaying all
-available commands, as well as examples of how to use them, is called. 
+Given below is an example scenario and how the help mechanism behaves at each step.
+
+Step 1. The user decides to view the help guide for add function, and executes `/help add`.
+
+_**Note:** The command will fail its execution if the command type provided behind `help` is invalid. An error message 
+will be displayed informing the user._ 
+
+Step 2. The command will be resolved by `Parser`, which instantiates a `HelpCommand` object using the appropriate
+constructor.
+
+Step 3. When execute() method is called, printHelpAdd() method is called from the `UI`. This method prints out 
+instructions on how the `add` command should be used.
+
 
 #### Exit/Bye Command
 
