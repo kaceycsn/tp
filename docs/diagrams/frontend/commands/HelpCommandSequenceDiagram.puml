@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant ":Parser" as Parser
+participant "command:HelpCommand" as HelpCommand
+participant ":UI" as UI
+
+Parser -> HelpCommand ** : HelpCommand(commandType)
+activate HelpCommand
+HelpCommand -->Parser : command
+deactivate HelpCommand
+
+-> HelpCommand: execute()
+activate HelpCommand
+
+alt commandType is null
+    HelpCommand -> UI: printHelpMenu()
+    activate UI
+    return
+
+else add
+     HelpCommand -> UI : printHelpAdd()
+     activate UI
+     return
+
+else delete
+    HelpCommand -> UI : printHelpDelete()
+    activate UI
+    return
+
+else view
+    HelpCommand -> UI : printHelpView()
+    activate UI
+    return
+
+else edit
+    HelpCommand -> UI : printHelpEdit()
+    activate UI
+    return
+
+else help
+    HelpCommand -> UI : printHelpHelp()
+    activate UI
+    return
+
+else bye
+    HelpCommand -> UI : printHelpBye()
+    activate UI
+    return
+return
+destroy HelpCommand
+end
+@enduml

@@ -11,6 +11,7 @@ import pocketpal.frontend.exceptions.InvalidArgumentsException;
 import pocketpal.frontend.exceptions.InvalidCategoryException;
 import pocketpal.frontend.exceptions.InvalidCommandException;
 import pocketpal.frontend.exceptions.InvalidDateException;
+import pocketpal.frontend.exceptions.InvalidHelpCommandException;
 import pocketpal.frontend.exceptions.MissingArgumentsException;
 import pocketpal.frontend.exceptions.MissingDateException;
 import pocketpal.frontend.exceptions.UnknownArgumentException;
@@ -38,7 +39,7 @@ public class Parser {
     public Command parseUserInput(String userInput) throws
             InvalidCommandException, InvalidArgumentsException,
             MissingArgumentsException, InvalidCategoryException, MissingDateException,
-            InvalidDateException, UnknownOptionException, UnknownArgumentException {
+            InvalidDateException, UnknownOptionException, UnknownArgumentException, InvalidHelpCommandException {
         logger.entering(Parser.class.getName(), "parseUserInput()");
         userInput = userInput.trim();
         if (userInput.isEmpty()) {
