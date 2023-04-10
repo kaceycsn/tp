@@ -6,13 +6,11 @@ import pocketpal.frontend.constants.ParserConstants;
 import pocketpal.frontend.exceptions.InvalidArgumentsException;
 import pocketpal.frontend.exceptions.InvalidCategoryException;
 import pocketpal.frontend.exceptions.InvalidDateException;
-import pocketpal.frontend.exceptions.InvalidHelpCommandException;
 import pocketpal.frontend.exceptions.MissingArgumentsException;
 import pocketpal.frontend.exceptions.MissingDateException;
 import pocketpal.frontend.exceptions.UnknownArgumentException;
 import pocketpal.frontend.exceptions.UnknownOptionException;
 import pocketpal.frontend.util.CategoryUtil;
-import pocketpal.frontend.util.CommandUtil;
 import pocketpal.frontend.util.StringUtil;
 
 import java.util.logging.Logger;
@@ -24,7 +22,7 @@ public abstract class ParseCommand {
 
     public abstract Command parseArguments(String input) throws InvalidArgumentsException,
             InvalidCategoryException, MissingArgumentsException, MissingDateException, InvalidDateException,
-            UnknownOptionException, UnknownArgumentException, InvalidHelpCommandException;
+            UnknownOptionException, UnknownArgumentException;
 
     /**
      * Returns arguments matching the specified pattern.
@@ -186,20 +184,4 @@ public abstract class ParseCommand {
         }
     }
 
-    /**
-     * Checks if user specified help command is valid.
-     *
-     * @param helpCommand User specified help command.
-     * @throws InvalidHelpCommandException If help command specified is not supported.
-     */
-    public void checkHelpCommandValidity(String helpCommand) throws InvalidHelpCommandException {
-        String[] helpCommandArray = helpCommand.split(" ", 2);
-        if (helpCommandArray.length > 1){
-            throw new InvalidHelpCommandException(MessageConstants.MESSAGE_INVALID_HELP_COMMAND);
-        }
-        logger.entering(ParseCommand.class.getName(), "checkHelpCommandValidity()");
-        helpCommand = StringUtil.toTitleCase(helpCommand);
-        CommandUtil.convertStringToCommand(helpCommand);
-        logger.entering(ParseCommand.class.getName(), "checkHelpCommandValidity()");
-    }
 }

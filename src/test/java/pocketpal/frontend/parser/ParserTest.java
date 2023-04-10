@@ -12,7 +12,6 @@ import pocketpal.frontend.exceptions.InvalidArgumentsException;
 import pocketpal.frontend.exceptions.InvalidCategoryException;
 import pocketpal.frontend.exceptions.InvalidCommandException;
 import pocketpal.frontend.exceptions.InvalidDateException;
-import pocketpal.frontend.exceptions.InvalidHelpCommandException;
 import pocketpal.frontend.exceptions.MissingArgumentsException;
 import pocketpal.frontend.exceptions.MissingDateException;
 import pocketpal.frontend.exceptions.UnknownArgumentException;
@@ -507,44 +506,5 @@ public class ParserTest {
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
     }
-    // @@author
-
-    // @@author kaceycsn
-    @Test
-    public void checkHelpCommandValidity_invalidCommand_exceptionThrown(){
-        Parser parser = new Parser();
-        Exception exception = assertThrows(InvalidHelpCommandException.class, () -> {
-            parser.parseUserInput("/help export");
-        });
-
-        String expectedMessage = MessageConstants.MESSAGE_INVALID_HELP_COMMAND;
-        String actualMessage = exception.getMessage();
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void checkHelpCommandValidity_givenMultipleCommands_exceptionThrown(){
-        Parser parser = new Parser();
-        Exception exception = assertThrows(InvalidHelpCommandException.class, () -> {
-            parser.parseUserInput("/help add bye");
-        });
-
-        String expectedMessage = MessageConstants.MESSAGE_INVALID_HELP_COMMAND;
-        String actualMessage = exception.getMessage();
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void parseHelpCommand_noArguments_parsedSuccessfully() {
-        Parser parser = new Parser();
-        assertDoesNotThrow(() -> parser.parseUserInput("/help"));
-    }
-
-    @Test
-    public void parseHelpCommand_validArguments_parsedSuccessfully() {
-        Parser parser = new Parser();
-        assertDoesNotThrow(() -> parser.parseUserInput("/help add"));
-    }
-
     // @@author
 }
